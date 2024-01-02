@@ -85,6 +85,7 @@ var finances = [
   ['Dec-2016', 60988],
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
+
 ];
 
 console.log(finances)
@@ -98,53 +99,78 @@ var average;
 var analysis;
 var net = 0
 var netArray = []
-var profit = ['',0]
-var loss = ['',9999999999999]
+// var profit = ['',0]
+// var loss = ['',9999999999999]
 var date;
 var amount;
 var currentMonth;
 var netChangeSum = 0
 var previousAmount = 0
+var greatestProfit = 0;
+var greatestLoss = 0;
 
 // ready for logic
 
-for (let i = 0; i < finances.length; i++) {
-  // const element = array[i];
-  console.log(finances[i])
-  for (let j = 0; j < finances[i].length; j++) {
-    // const element = array[j];
-    console.log(finances[i][j])
-    if (typeof finances[i][j] !== 'string') {
-      total += finances[i][j]
-      change = finances[i][j] - net
-      net = finances[i][j]
-      netArray.push(net)
-      // console.log(netArray)
-      // console.log(total)
-      // console.log(change)
-      // console.log(net)
-      if (change > profit[1]) {
-        profit = [finances[i][0],finances[i][1]]
-        // console.log(finances[i][0],finances[i][1])
-      }
+// for (let i = 0; i < finances.length; i++) {
+//   // const element = array[i];
+//   console.log(finances[i])
+//   for (let j = 0; j < finances[i].length; j++) {
+//     // const element = array[j];
+//     console.log(finances[i][j])
+//     if (typeof finances[i][j] !== 'string') {
+//       total += finances[i][j]
+//       change = finances[i][j] - net
+//       net = finances[i][j]
+//       netArray.push(net)
+//       // console.log(netArray)
+//       // console.log(total)
+//       // console.log(change)
+//       // console.log(net)
+//       if (change > profit[1]) {
+//         profit = [finances[i][0],finances[i][1]]
+//         // console.log(finances[i][0],finances[i][1])
+//       }
       
-      if (change > loss[1]) {
-        profit = [finances[i][0],finances[i][1]]
-        // console.log(finances[i][0],finances[i][1])
-      }
+//       if (change > loss[1]) {
+//         profit = [finances[i][0],finances[i][1]]
+//         // console.log(finances[i][0],finances[i][1])
+//       }
       
+//     }
+//   }
+// }
+
+for (let i = 1; i < finances.length; i++) {
+  var currentChange = finances[i][1] - finances[i - 1][1]
+  netArray.push(currentChange)
+  if (currentChange < 0 ) {
+    if (currentChange < greatestLoss) {
+      greatestLoss = currentChange;
     }
-  }
+  } else {
+     if ( currentChange > greatestProfit ) {
+      greatestProfit = currentChange;
+     }
+  };
 }
+console.log("Greatest Decrease: ", greatestLoss);
+console.log("Greatest Increase: ",greatestProfit);
+
+console.log("netArray", netArray)
 
 for (let i = 0; i < netArray.length; i++) {
-  // const element = array[i];
-  netChangeSum += netArray[i]
-  console.log(netChangeSum)
+  var currentSum 
+  
 }
 
-average = Math.round((netChangeSum/months) *100)/100
-console.log(average)
+// for (let i = 0; i < netArray.length; i++) {
+//   // const element = array[i];
+//   netChangeSum += netArray[i]
+// }
+// console.log("Total: ", netChangeSum)
+
+// average = Math.round((netChangeSum/months) *100)/100
+// console.log(average)
 average = Math.round(netChangeSum/months - 1) 
 console.log(average)
 

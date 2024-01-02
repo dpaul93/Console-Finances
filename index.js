@@ -108,12 +108,15 @@ var netChangeSum = 0
 var previousAmount = 0
 var greatestProfit = 0;
 var greatestLoss = 0;
-
+var netAve = 0
+var greatestIncrease;
+var greatestDecrease;
 // ready for logic
 
 // for (let i = 0; i < finances.length; i++) {
 //   // const element = array[i];
 //   console.log(finances[i])
+// }
 //   for (let j = 0; j < finances[i].length; j++) {
 //     // const element = array[j];
 //     console.log(finances[i][j])
@@ -141,27 +144,38 @@ var greatestLoss = 0;
 // }
 
 for (let i = 1; i < finances.length; i++) {
+  if (i == 1)
+  {
+    total += finances[i - 1][1]
+  }
+  total += finances[i][1]
   var currentChange = finances[i][1] - finances[i - 1][1]
   netArray.push(currentChange)
   if (currentChange < 0 ) {
     if (currentChange < greatestLoss) {
       greatestLoss = currentChange;
+      greatestDecrease = finances[i][0];
     }
   } else {
-     if ( currentChange > greatestProfit ) {
+    if ( currentChange > greatestProfit ) {
       greatestProfit = currentChange;
-     }
+      greatestIncrease = finances[i][0];
+    }
   };
 }
-console.log("Greatest Decrease: ", greatestLoss);
-console.log("Greatest Increase: ",greatestProfit);
-
+console.log("Greatest Decrease: ", greatestLoss, greatestDecrease);
+console.log("Greatest Increase: ",greatestProfit, greatestIncrease);
 console.log("netArray", netArray)
+console.log(total);
+
 
 for (let i = 0; i < netArray.length; i++) {
-  var currentSum 
-  
+  // netAve = netAve + netArray[i]
+  netAve += netArray[i]
 }
+console.log(netAve)
+
+// console.log("Average Change", currentSum)
 
 // for (let i = 0; i < netArray.length; i++) {
 //   // const element = array[i];
@@ -171,6 +185,6 @@ for (let i = 0; i < netArray.length; i++) {
 
 // average = Math.round((netChangeSum/months) *100)/100
 // console.log(average)
-average = Math.round(netChangeSum/months - 1) 
+average = Math.round(netAve/85 - 1) 
 console.log(average)
 

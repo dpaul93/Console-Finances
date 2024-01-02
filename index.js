@@ -119,12 +119,20 @@ for (let i = 0; i < finances.length; i++) {
       change = finances[i][j] - net
       net = finances[i][j]
       netArray.push(net)
+      // console.log(netArray)
+      // console.log(total)
+      // console.log(change)
+      // console.log(net)
       if (change > profit[1]) {
         profit = [finances[i][0],finances[i][1]]
+        // console.log(finances[i][0],finances[i][1])
       }
+      
       if (change > loss[1]) {
         profit = [finances[i][0],finances[i][1]]
+        // console.log(finances[i][0],finances[i][1])
       }
+      
     }
   }
 }
@@ -132,8 +140,11 @@ for (let i = 0; i < finances.length; i++) {
 for (let i = 0; i < netArray.length; i++) {
   // const element = array[i];
   netChangeSum += netArray[i]
+  console.log(netChangeSum)
 }
 
 average = Math.round((netChangeSum/months) *100)/100
+console.log(average)
 average = Math.round(netChangeSum/months - 1) 
+console.log(average)
 

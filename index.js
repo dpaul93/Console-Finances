@@ -179,11 +179,6 @@ for (let i = 0; i < netArray.length; i++) {
 
 // average = Math.round((netChangeSum/months) *100)/100
 // console.log(average)
-<<<<<<< HEAD
-average = Math.round (netAve/85 - 1) 
-=======
-average = Math.round(netAve/85 - 1) 
-
 // Console log output as per assisgment requirements 
 
 console.log("Financial Analysis");
@@ -191,16 +186,5 @@ console.log("''''''''''''''''''");
 console.log("Total Months:", months);
 console.log("Total", total);
 console.log("Average Change", average);
-console.log("Greatest Increase in Profits/Losses: ", greatestLoss, greatestDecrease);
-console.log("Greatest Decrease in Profits/Losses: ",greatestProfit, greatestIncrease);
->>>>>>> 65881d1a0fc1f2232e069e1034f4c742c54c9123
-
-// Console log output as per assisgment requirements 
-
-console.log("Financial Analysis");
-console.log("''''''''''''''''''");
-console.log("Total Months:", months);
-console.log("Total", total);
-console.log("Average Change", average);
-console.log("Greatest Decrease in Profits/Losses: ",greatestProfit, greatestIncrease);
-console.log("Greatest Increase in Profits/Losses: ", greatestLoss, greatestDecrease);
+console.log("Greatest Increase in Profits/Losses: ", greatestProfit, greatestIncrease);
+console.log("Greatest Decrease in Profits/Losses: ",greatestLoss, greatestDecrease);

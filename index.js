@@ -85,14 +85,11 @@ var finances = [
   ['Dec-2016', 60988],
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
-
 ];
 
-console.log(finances)
+// console.log(finances)
 // declaring all variable
 var months = finances.length
-console.log(months)
-
 var total = 0
 var change = 0
 var average;
@@ -163,17 +160,14 @@ for (let i = 1; i < finances.length; i++) {
     }
   };
 }
-console.log("Greatest Decrease: ", greatestLoss, greatestDecrease);
-console.log("Greatest Increase: ",greatestProfit, greatestIncrease);
-console.log("netArray", netArray)
-console.log(total);
+// console.log("netArray", netArray)
 
 
 for (let i = 0; i < netArray.length; i++) {
   // netAve = netAve + netArray[i]
   netAve += netArray[i]
 }
-console.log(netAve)
+// console.log(netAve)
 
 // console.log("Average Change", currentSum)
 
@@ -185,6 +179,14 @@ console.log(netAve)
 
 // average = Math.round((netChangeSum/months) *100)/100
 // console.log(average)
-average = Math.round(netAve/85 - 1) 
-console.log(average)
+average = Math.round (netAve/85 - 1) 
 
+// Console log output as per assisgment requirements 
+
+console.log("Financial Analysis");
+console.log("''''''''''''''''''");
+console.log("Total Months:", months);
+console.log("Total", total);
+console.log("Average Change", average);
+console.log("Greatest Decrease in Profits/Losses: ",greatestProfit, greatestIncrease);
+console.log("Greatest Increase in Profits/Losses: ", greatestLoss, greatestDecrease);
